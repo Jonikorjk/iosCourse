@@ -18,6 +18,7 @@
 		CEA47F3328FD86AD00A413D2 /* LoginFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA47F3228FD86AD00A413D2 /* LoginFormTests.swift */; };
 		CEA47F3D28FD86AD00A413D2 /* LoginFormUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA47F3C28FD86AD00A413D2 /* LoginFormUITests.swift */; };
 		CEA47F3F28FD86AD00A413D2 /* LoginFormUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA47F3E28FD86AD00A413D2 /* LoginFormUITestsLaunchTests.swift */; };
+		CEC65E382905914800B9315D /* DataSaverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC65E372905914800B9315D /* DataSaverController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CEA47F3828FD86AD00A413D2 /* LoginFormUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginFormUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA47F3C28FD86AD00A413D2 /* LoginFormUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormUITests.swift; sourceTree = "<group>"; };
 		CEA47F3E28FD86AD00A413D2 /* LoginFormUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEC65E372905914800B9315D /* DataSaverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSaverController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +107,11 @@
 			children = (
 				CEA47F1B28FD86AB00A413D2 /* AppDelegate.swift */,
 				CEA47F1D28FD86AB00A413D2 /* SceneDelegate.swift */,
-				CEA47F1F28FD86AB00A413D2 /* ViewController.swift */,
 				CEA47F2128FD86AB00A413D2 /* Main.storyboard */,
-				CE2F629D28FEE58700A73B83 /* ConfirmationViewController.swift */,
 				CEA47F2428FD86AD00A413D2 /* Assets.xcassets */,
 				CEA47F2628FD86AD00A413D2 /* LaunchScreen.storyboard */,
+				CECDE5B32903E24A00A50D61 /* View Controllers */,
 				CEA47F2928FD86AD00A413D2 /* Info.plist */,
-				CE2F629B28FEE3CD00A73B83 /* PersonalInfoViewController.swift */,
 			);
 			path = LoginForm;
 			sourceTree = "<group>";
@@ -131,6 +131,17 @@
 				CEA47F3E28FD86AD00A413D2 /* LoginFormUITestsLaunchTests.swift */,
 			);
 			path = LoginFormUITests;
+			sourceTree = "<group>";
+		};
+		CECDE5B32903E24A00A50D61 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE2F629B28FEE3CD00A73B83 /* PersonalInfoViewController.swift */,
+				CE2F629D28FEE58700A73B83 /* ConfirmationViewController.swift */,
+				CEA47F1F28FD86AB00A413D2 /* ViewController.swift */,
+				CEC65E372905914800B9315D /* DataSaverController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2F629C28FEE3CD00A73B83 /* PersonalInfoViewController.swift in Sources */,
+				CEC65E382905914800B9315D /* DataSaverController.swift in Sources */,
 				CEA47F2028FD86AB00A413D2 /* ViewController.swift in Sources */,
 				CEA47F1C28FD86AB00A413D2 /* AppDelegate.swift in Sources */,
 				CEA47F1E28FD86AB00A413D2 /* SceneDelegate.swift in Sources */,
