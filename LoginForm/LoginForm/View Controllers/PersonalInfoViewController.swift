@@ -27,6 +27,7 @@ class PersonalInfoViewController: UIViewController {
                 //TODO: add data and photo
                 datasaver.personalInfo = PersonalInfo(firstName: f_name.text!, lastName: l_name.text!, birthday: convertDateToString(date, datastyle: .short), selfphoto: nil)
                 destVC.datasaver = datasaver
+            
             }
         }
     }
