@@ -136,8 +136,8 @@
                                 <color key="textColor" red="0.3630638719" green="0.65859335659999996" blue="0.89159804580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="bWA-Eo-vYI">
-                                <rect key="frame" x="10" y="226" width="410" height="230.66666666666663"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bWA-Eo-vYI">
+                                <rect key="frame" x="10" y="224.99999999999997" width="410" height="231.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bWA-Eo-vYI" secondAttribute="height" multiplier="16:9" id="5EZ-mD-qBs"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="410" id="Tg0-p4-Pt5"/>
@@ -193,10 +193,18 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34.333333333333371" id="6eA-ar-n0y"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="dateChanger:" destination="oma-KR-IPB" eventType="valueChanged" id="dX5-y0-HJD"/>
-                                </connections>
                             </datePicker>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcZ-eS-ZqB">
+                                <rect key="frame" x="100" y="226" width="230" height="230"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <color key="baseForegroundColor" systemColor="systemTealColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressImportImageButton:" destination="oma-KR-IPB" eventType="touchUpInside" id="nX0-I7-Aeh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S3x-fN-Emu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -241,6 +249,7 @@
                     <connections>
                         <outlet property="date" destination="tMN-fE-6pS" id="7qd-Mk-Ml4"/>
                         <outlet property="f_name" destination="DzG-Kh-61g" id="yRp-7Z-B3Q"/>
+                        <outlet property="importImageButton" destination="HcZ-eS-ZqB" id="S4I-5C-xOA"/>
                         <outlet property="l_name" destination="Fyq-4O-9Q5" id="z5W-Oj-UJP"/>
                         <outlet property="selfPhoto" destination="bWA-Eo-vYI" id="NmR-pl-Dff"/>
                     </connections>
@@ -281,9 +290,6 @@
                                 <color key="textColor" red="0.3630638719" green="0.65859335659999996" blue="0.89159804580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Cy-gy-ZvK">
-                                <rect key="frame" x="48" y="225.66666666666663" width="334" height="188"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sz-GP-BF6" userLabel="Next">
                                 <rect key="frame" x="40" y="803" width="350" height="60"/>
                                 <constraints>
@@ -316,6 +322,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Cy-gy-ZvK">
+                                <rect key="frame" x="48" y="225.66666666666663" width="334" height="188"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gh2-6O-Vcs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -350,6 +359,7 @@
                         <outlet property="email" destination="eab-FJ-VYu" id="sEG-ra-R8c"/>
                         <outlet property="f_name" destination="Wtv-P4-ztu" id="WTj-rA-xse"/>
                         <outlet property="l_name" destination="vIc-wJ-rzw" id="uzC-qB-6hC"/>
+                        <outlet property="selfPhoto" destination="5Cy-gy-ZvK" id="zyq-S9-5P5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OH3-LI-79h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -358,9 +368,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="eye" width="32" height="32"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

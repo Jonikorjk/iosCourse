@@ -6,13 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct PersonalInfo {
     var firstName: String
     var lastName: String
-    //TODO: change optional values on non-optional
     var birthday: String
-    var selfphoto: String?
+    var selfphoto: UIImage
 }
 
 struct User {
@@ -33,19 +33,23 @@ class DataSaverController {
         }
     }
     
-    var email: String? {
-        return data.email
+    var email: String {
+        return "Email: " + data.email
     }
-    var firstName: String? {
-        return data.personalInfo?.firstName
-    }
-    
-    var lastName: String? {
-        return data.personalInfo?.lastName
+    var firstName: String {
+        return "First Name: " + data.personalInfo!.firstName
     }
     
-    var birthday: String? {
-        return data.personalInfo?.birthday
+    var lastName: String {
+        return "Last Name: " + data.personalInfo!.lastName
+    }
+    
+    var birthday: String {
+        return "Birthday: " + data.personalInfo!.birthday
+    }
+    
+    var avatarPhoto: UIImage {
+        return data.personalInfo!.selfphoto
     }
     
     init(data: User) {

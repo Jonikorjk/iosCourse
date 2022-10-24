@@ -15,11 +15,15 @@ class ConfirmationViewController: UIViewController {
     @IBOutlet var l_name: UILabel!
     @IBOutlet var dateBirth: UILabel!
     @IBOutlet var email: UILabel!
+    @IBOutlet var selfPhoto: UIImageView!
+
+    
     override func viewDidLoad() {
         f_name.text = datasaver.firstName
         l_name.text = datasaver.lastName
         email.text = datasaver.email
         dateBirth.text = datasaver.birthday
+        selfPhoto.image = datasaver.avatarPhoto
         
         super.viewDidLoad()
         
