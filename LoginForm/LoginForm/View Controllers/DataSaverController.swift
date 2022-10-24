@@ -11,7 +11,7 @@ struct PersonalInfo {
     var firstName: String
     var lastName: String
     //TODO: change optional values on non-optional
-    var birthday: String?
+    var birthday: String
     var selfphoto: String?
 }
 
