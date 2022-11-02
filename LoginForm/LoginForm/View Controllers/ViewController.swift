@@ -7,57 +7,96 @@
 import Foundation
 import UIKit
 
-//func doStringContainsNumber( _string : String) -> Bool{
-//
-//        let numberRegEx  = ".*[0-9]+.*"
-//        let testCase = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
-//    let containsNumber = testCase.evaluate(with: _string)
-//
-//        return containsNumber
-//        }
+extension UIButton {
+    public func setEye(_ openEye: UIImage, _ closedEye: UIImage, _ textField: UITextField) {
+        self.setImage(openEye, for: .normal)
+        self.setImage(closedEye, for: .selected)
+        self.imageEdgeInsets = UIEdgeInsets(top: 8, left: 1, bottom: 8, right: 15)
+        textField.rightView = self
+        textField.rightViewMode = .always
+    }
+}
 
 class ViewController: UIViewController {
-    @IBOutlet var email_lbl: UITextField!
-    @IBOutlet var password_lbl: UITextField!
-    @IBOutlet var confirm_password_lbl: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var confirmPasswordTextField: UITextField!
     
-    var eye = UIButton(type: .custom)
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var passwordLabel: UILabel!
+    @IBOutlet var confirmPasswordLabel: UILabel!
+    
+    
+    @IBOutlet var errConfirmPasswordLabel: UILabel!
+    @IBOutlet var errPaswordLabel: UILabel!
+    @IBOutlet var errEmailLabel: UILabel!
+    
+    var eyeButton = UIButton(type: .custom)
+    @IBOutlet var nextButton: UIButton!
+    
+    
     
     var datasaver: DataSaverController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        eye.setImage(UIImage(named: "eye"), for: .normal)
-        eye.setImage(UIImage(named: "closed_eye"), for: .selected)
-        eye.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
-        eye.imageEdgeInsets = UIEdgeInsets(top: 8, left: 1, bottom: 8, right: 15)
-        password_lbl.rightView = eye
-        password_lbl.rightViewMode = .always
+    
+        eyeButton.setEye(UIImage(named: "eye")!, UIImage(named: "closed_eye")!, passwordTextField)
+        eyeButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
     }
-
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PersonalInfoSegue" {
-            //TODO: add validation func on textfields before segue (VC)
-
-            if let destinationVC = segue.destination as? PersonalInfoViewController {
-                datasaver = DataSaverController(data: User(email: email_lbl.text!, password: password_lbl.text!))
-                destinationVC.datasaver = datasaver
+    
+    
+    @IBAction func toPersonalInfoScene(_ sender: UIButton) {
+        if let personalInfoVC = storyboard?.instantiateViewController(withIdentifier: "PersonalInfoViewController") as? PersonalInfoViewController {
+            
+            // cheking is the textfields are correct
+            if !Validation.checkOnRegex(passwordTextField.text, type: .password) ||
+               !Validation.checkOnRegex(emailTextField.text, type: .email)       ||
+               !Validation.checkOnRegex(passwordTextField.text, type: .password) ||
+               !Validation.isPasswordsSimillar(passwordTextField.text, confirmPasswordTextField.text) {
+                changeCpassword("")
+                changePasswordLabel("")
+                changeEmailLabel("")
+                return
             }
+            
+            datasaver = DataSaverController(data: User(email: emailTextField.text!, password: passwordTextField.text!))
+            personalInfoVC.datasaver = datasaver
+            
+            self.navigationController?.pushViewController(personalInfoVC, animated: true)
         }
     }
     
     @IBAction func togglePasswordView(_ sender: Any) {
-        password_lbl.isSecureTextEntry.toggle()
-        eye.isSelected.toggle()
+        passwordTextField.isSecureTextEntry.toggle()
+        eyeButton.isSelected.toggle()
     }
     
-
     
+    @IBAction func changeCpassword(_ sender: Any) {
+        if Validation.isPasswordsSimillar(passwordTextField.text, confirmPasswordTextField.text) {
+            errConfirmPasswordLabel.isHidden = true
+        }
+        else {
+            errConfirmPasswordLabel.isHidden = false
+        }
+    }
     
+    @IBAction func changePasswordLabel(_ sender: Any) {
+        if Validation.checkOnRegex(passwordTextField.text, type: .password) {
+            errPaswordLabel.isHidden = true
+        }
+        else {
+            errPaswordLabel.isHidden = false
+        }
+    }
     
-    
-    
+    @IBAction func changeEmailLabel(_ sender: Any) {
+        if Validation.checkOnRegex(emailTextField.text, type: .email) {
+            errEmailLabel.isHidden = true
+        }
+        else {
+            errEmailLabel.isHidden = false
+        }
+    }
 }
-

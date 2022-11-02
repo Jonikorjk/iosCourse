@@ -22,7 +22,7 @@ struct User {
 }
 
 class DataSaverController {
-    private var data: User
+    public var data: User
     
     var personalInfo: PersonalInfo? {
         get {
@@ -32,24 +32,28 @@ class DataSaverController {
             data.personalInfo = newValue
         }
     }
-    
     var email: String {
-        return "Email: " + data.email
-    }
-    var firstName: String {
-        return "First Name: " + data.personalInfo!.firstName
+        return data.email
     }
     
-    var lastName: String {
-        return "Last Name: " + data.personalInfo!.lastName
+    var firstName: String? {
+        return data.personalInfo?.firstName
     }
     
-    var birthday: String {
-        return "Birthday: " + data.personalInfo!.birthday
+    var lastName: String? {
+        return data.personalInfo?.lastName
     }
     
-    var avatarPhoto: UIImage {
-        return data.personalInfo!.selfphoto
+    var birthday: String? {
+
+        return data.personalInfo?.birthday
+    }
+    
+    var avatarPhoto: UIImage? {
+        if let avtr = data.personalInfo?.selfphoto {
+            return avtr
+        }
+        return nil
     }
     
     init(data: User) {

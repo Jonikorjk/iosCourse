@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE03CC1029115AE000E09809 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03CC0F29115AE000E09809 /* StartViewController.swift */; };
+		CE03CC1229118ACE00E09809 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03CC1129118ACE00E09809 /* Validation.swift */; };
 		CE2F629C28FEE3CD00A73B83 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F629B28FEE3CD00A73B83 /* PersonalInfoViewController.swift */; };
 		CE2F629E28FEE58700A73B83 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F629D28FEE58700A73B83 /* ConfirmationViewController.swift */; };
 		CEA47F1C28FD86AB00A413D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA47F1B28FD86AB00A413D2 /* AppDelegate.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE03CC0F29115AE000E09809 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		CE03CC1129118ACE00E09809 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		CE2F629B28FEE3CD00A73B83 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		CE2F629D28FEE58700A73B83 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		CEA47F1828FD86AB00A413D2 /* LoginForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +116,7 @@
 				CEA47F2628FD86AD00A413D2 /* LaunchScreen.storyboard */,
 				CECDE5B32903E24A00A50D61 /* View Controllers */,
 				CEA47F2928FD86AD00A413D2 /* Info.plist */,
+				CE03CC1129118ACE00E09809 /* Validation.swift */,
 			);
 			path = LoginForm;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 				CE2F629D28FEE58700A73B83 /* ConfirmationViewController.swift */,
 				CEA47F1F28FD86AB00A413D2 /* ViewController.swift */,
 				CEC65E372905914800B9315D /* DataSaverController.swift */,
+				CE03CC0F29115AE000E09809 /* StartViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -276,10 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2F629C28FEE3CD00A73B83 /* PersonalInfoViewController.swift in Sources */,
+				CE03CC1029115AE000E09809 /* StartViewController.swift in Sources */,
 				CEC65E382905914800B9315D /* DataSaverController.swift in Sources */,
 				CEA47F2028FD86AB00A413D2 /* ViewController.swift in Sources */,
 				CEA47F1C28FD86AB00A413D2 /* AppDelegate.swift in Sources */,
 				CEA47F1E28FD86AB00A413D2 /* SceneDelegate.swift in Sources */,
+				CE03CC1229118ACE00E09809 /* Validation.swift in Sources */,
 				CE2F629E28FEE58700A73B83 /* ConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
