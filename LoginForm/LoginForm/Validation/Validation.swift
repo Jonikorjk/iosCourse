@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Validation {
+internal class Validation {
     
     static func isNameFieldCorrect(_ firstNameOrLastName: String?) -> Bool {
         guard let firstNameOrLastName = firstNameOrLastName else {

@@ -86,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE48B80E2918312700B50DA0 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				CE03CC1129118ACE00E09809 /* Validation.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
 		CEA47F0F28FD86AB00A413D2 = {
 			isa = PBXGroup;
 			children = (
@@ -114,9 +122,9 @@
 				CEA47F2128FD86AB00A413D2 /* Main.storyboard */,
 				CEA47F2428FD86AD00A413D2 /* Assets.xcassets */,
 				CEA47F2628FD86AD00A413D2 /* LaunchScreen.storyboard */,
+				CE48B80E2918312700B50DA0 /* Validation */,
 				CECDE5B32903E24A00A50D61 /* View Controllers */,
 				CEA47F2928FD86AD00A413D2 /* Info.plist */,
-				CE03CC1129118ACE00E09809 /* Validation.swift */,
 			);
 			path = LoginForm;
 			sourceTree = "<group>";

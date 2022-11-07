@@ -4,7 +4,6 @@
 //
 //  Created by User on 18.10.2022.
 //
-
 import UIKit
 import PhotosUI
 
@@ -25,6 +24,8 @@ class PersonalInfoViewController: UIViewController, PHPickerViewControllerDelega
         super.viewDidLoad()
         errFirstNameLabel.isHidden = true
         errLastNameLabel.isHidden = true
+        date.contentVerticalAlignment = .center
+        date.contentHorizontalAlignment = .center
     }
 
     
@@ -63,7 +64,7 @@ class PersonalInfoViewController: UIViewController, PHPickerViewControllerDelega
         if let confirmVC = storyboard?.instantiateViewController(withIdentifier: "ConfirmationViewController") as? ConfirmationViewController {
             if !Validation.isNameFieldCorrect(firstNameTextField.text) ||
                !Validation.isNameFieldCorrect(lastNameTextField.text) {
-                checkLastName("")
+                checkFirstName("")
                 checkLastName("")
                 return
             }

@@ -41,15 +41,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+        
         eyeButton.setEye(UIImage(named: "eye")!, UIImage(named: "closed_eye")!, passwordTextField)
         eyeButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     
     @IBAction func toPersonalInfoScene(_ sender: UIButton) {
         if let personalInfoVC = storyboard?.instantiateViewController(withIdentifier: "PersonalInfoViewController") as? PersonalInfoViewController {
             
-            // cheking is the textfields are correct
+//             cheking is the textfields are correct
             if !Validation.checkOnRegex(passwordTextField.text, type: .password) ||
                !Validation.checkOnRegex(emailTextField.text, type: .email)       ||
                !Validation.checkOnRegex(passwordTextField.text, type: .password) ||
